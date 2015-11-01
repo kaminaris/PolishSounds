@@ -1,5 +1,5 @@
 ## Interface: 62000
-## Version: 0.2
+## Version: 0.3
 ## Title: TDSounds_PL
 ## Author: Kaminaris @ Burning Legion EU
 ## Notes: Dzwieki do addonow typu Weak Auras 2

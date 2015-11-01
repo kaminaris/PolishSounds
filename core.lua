@@ -4,7 +4,10 @@
 -- Bialy, Moon, Przerwij, Wypierdalaj, Lewo
 -- Prawo, Srodek, Pierwszy, Drugi, Trzeci
 -- Czwarty, Piaty, Szosty, Uciekaj, ZabierzBossa
--- TwojaKolej
+-- TwojaKolej, Stoj, Odpalki, Ring, Addy
+-- RuszSie, Boss, LewyBok, PrawyBok, LewyTyl
+-- PrawyTyl, PrawyPrzod, LewyPrzod, ZabierzAdda, Przod
+-- Tyl, Bloodlust, Heroizm, Aura, Banka
 -- soundlistend --
 local LSM = LibStub("LibSharedMedia-3.0");
 
@@ -37,7 +40,26 @@ local sounds = {
 	[23]  = {name = "PL Szosty",           path = SoundPath .. "Szosty.mp3"},
 	[24]  = {name = "PL Uciekaj",          path = SoundPath .. "Uciekaj.mp3"},
 	[25]  = {name = "PL ZabierzBossa",     path = SoundPath .. "ZabierzBossa.mp3"},
-	[26]  = {name = "PL TwojaKolej",       path = SoundPath .. "TwojaKolej.mp3"}
+	[26]  = {name = "PL TwojaKolej",       path = SoundPath .. "TwojaKolej.mp3"},
+	[27]  = {name = "PL Stoj",             path = SoundPath .. "Stoj.mp3"},
+	[28]  = {name = "PL Odpalki",          path = SoundPath .. "Odpalki.mp3"},
+	[29]  = {name = "PL Ring",             path = SoundPath .. "Ring.mp3"},
+	[30]  = {name = "PL Addy",             path = SoundPath .. "Addy.mp3"},
+	[31]  = {name = "PL RuszSie",          path = SoundPath .. "RuszSie.mp3"},
+	[32]  = {name = "PL Boss",             path = SoundPath .. "Boss.mp3"},
+	[33]  = {name = "PL LewyBok",          path = SoundPath .. "LewyBok.mp3"},
+	[34]  = {name = "PL PrawyBok",         path = SoundPath .. "PrawyBok.mp3"},
+	[35]  = {name = "PL LewyTyl",          path = SoundPath .. "LewyTyl.mp3"},
+	[36]  = {name = "PL PrawyTyl",         path = SoundPath .. "PrawyTyl.mp3"},
+	[37]  = {name = "PL PrawyPrzod",       path = SoundPath .. "PrawyPrzod.mp3"},
+	[38]  = {name = "PL LewyPrzod",        path = SoundPath .. "LewyPrzod.mp3"},
+	[39]  = {name = "PL ZabierzAdda",      path = SoundPath .. "ZabierzAdda.mp3"},
+	[40]  = {name = "PL Przod",            path = SoundPath .. "Przod.mp3"},
+	[41]  = {name = "PL Tyl",              path = SoundPath .. "Tyl.mp3"},
+	[42]  = {name = "PL Bloodlust",        path = SoundPath .. "Bloodlust.mp3"},
+	[43]  = {name = "PL Heroizm",          path = SoundPath .. "Heroizm.mp3"},
+	[44]  = {name = "PL Aura",             path = SoundPath .. "Aura.mp3"},
+	[45]  = {name = "PL Banka",            path = SoundPath .. "Banka.mp3"}
 -- end --
 }
 
