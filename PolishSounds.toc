@@ -1,5 +1,5 @@
 ## Interface: 80100
-## Version: 8.1.0
+## Version: 8.1.2
 ## Title: PolishSounds
 ## Author: Kaminaris @ Burning Legion EU
 ## Notes: Dzwieki do addonow typu Weak Auras 2/Dbm/BigWigs

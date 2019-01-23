@@ -16,7 +16,7 @@
 -- soundlistend --
 local LSM = LibStub("LibSharedMedia-3.0");
 
-local SoundPath = "Interface\\Addons\\TDSounds_PL\\Sounds\\";
+local SoundPath = "Interface\\Addons\\PolishSounds\\Sounds\\";
 
 local sounds = {
 -- start --
