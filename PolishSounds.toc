@@ -2,9 +2,10 @@
 ## Version: 8.1.0
 ## Title: PolishSounds
 ## Author: Kaminaris @ Burning Legion EU
-## Notes: Dzwieki do addonow typu Weak Auras 2
+## Notes: Dzwieki do addonow typu Weak Auras 2/Dbm/BigWigs
 ## OptionalDeps: LibSharedMedia-3.0
 ## X-Embeds: LibSharedMedia-3.0
+## X-Curse-Project-ID: 93704
 
 Libs\LibStub\LibStub.lua
 Libs\LibSharedMedia-3.0\CallBackHandler-1.0\CallBackHandler-1.0.lua
