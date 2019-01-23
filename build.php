@@ -5,21 +5,87 @@
  *******************************************************************/
 
 $soundList = [
-	'Niebieski', 'Czerwony', 'Zielony', 'Żółty', 'Stack', 'Wypad', 'Czaszka', 'Cyc', 'Pomarańczowy', 'Purpurowy',
-	'Biały', 'Moon', 'Przerwij', 'Wypierdalaj', 'Lewo', 'Prawo', 'Środek', 'Pierwszy', 'Drugi', 'Trzeci',
-	'Czwarty', 'Piąty', 'Szósty', 'Uciekaj', 'Zabierz Bossa', 'Twoja Kolej', 'Stój', 'Odpałki',
-	'Addy', 'Rusz Się', 'Boss', 'Lewy Bok', 'Prawy Bok', 'Lewy Tył', 'Prawy Tył', 'Prawy Przód', 'Lewy Przód',
-	'Zabierz Adda', 'Przód', 'Tył', 'Bladlast', 'Heroizm', 'Aura', 'Bańka'
+    'Niebieski'            => 'Niebieski',
+    'Czerwony'             => 'Czerwony',
+    'Zielony'              => 'Zielony',
+    'Żółty'                => 'Żółty',
+    'Stack'                => 'Stak',
+    'Wypad'                => 'Wypad',
+    'Czaszka'              => 'Czaszka',
+    'Cyc'                  => 'Cyc',
+    'Pomarańczowy'         => 'Pomarańczowy',
+    'Purpurowy'            => 'Purpurowy',
+    'Biały'                => 'Biały',
+    'Moon'                 => 'Moon',
+    'Przerwij'             => 'Przerwij',
+    'Wypierdalaj'          => 'Wypierdalaj',
+    'Lewo'                 => 'Lewo',
+    'Prawo'                => 'Prawo',
+    'Środek'               => 'Środek',
+    'Pierwszy'             => 'Pierwszy',
+    'Drugi'                => 'Drugi',
+    'Trzeci'               => 'Trzeci',
+    'Czwarty'              => 'Czwarty',
+    'Piąty'                => 'Piąty',
+    'Szósty'               => 'Szósty',
+    'Uciekaj'              => 'Uciekaj',
+    'Zabierz Bossa'        => 'Zabierz Bosa',
+    'Twoja Kolej'          => 'Twoja Kolej',
+    'Stój'                 => 'Stój',
+    'Odpałki'              => 'Odpałki',
+    'Addy'                 => 'Ady',
+    'Rusz Się'             => 'Rusz Się',
+    'Boss'                 => 'Bos',
+    'Lewy Bok'             => 'Lewy Bok',
+    'Prawy Bok'            => 'Prawy Bok',
+    'Lewy Tył'             => 'Lewy Tył',
+    'Prawy Tył'            => 'Prawy Tył',
+    'Prawy Przód'          => 'Prawy Przód',
+    'Lewy Przód'           => 'Lewy Przód',
+    'Zabierz Adda'         => 'Zabierz Ada',
+    'Przód'                => 'Przód',
+    'Tył'                  => 'Tył',
+    'Blodlust'             => 'Bladlast',
+    'Heroizm'              => 'Heroizm',
+    'Aura'                 => 'Aura',
+    'Bańka'                => 'Bańka',
+    'Zmień Cel'            => 'Zmień Cel',
+    'Odwróć się'           => 'Odwróć się',
+    'Bij Bossa'            => 'Bij Bosa',
+    'Idź do Bossa'         => 'Idź do Bosa',
+    'Unikaj'               => 'Unikaj',
+    'Uwaga'                => 'Uwaga',
+    'Uwaga Żaby'           => 'Uwaga Żaby',
+    'Laser'                => 'Laser',
+    'Do Bariery'           => 'Do Bariery',
+    'Nie soakuj'           => 'Nie sołkuj',
+    'Nie można cię leczyć' => 'Nie można cię leczyć',
+    'Spawnujesz Plamy'     => 'Spałnujesz Plamy',
+    'Zabij Totem'          => 'Zabij Totem',
+    'Ukryj się'            => 'Ukryj się',
+    'Wejdź do robota'      => 'Wejdź do robota',
+    'Podnieś orba'         => 'Podnieś orba',
+    'Podnieś kulkę'        => 'Podnieś kulkę',
+    'Frontal'              => 'Frontal',
+    'Bezpieczny'           => 'Bezpieczny',
+    'Usuń stacki'          => 'Usuń staki',
+    'Do ognia'             => 'Do ognia',
+    'Do beczki'            => 'Do beczki',
+    'Unikaj strzał'        => 'Unikaj strzał',
 ];
 
 $language = 'PL'; //2 char code
+
+// Amazon voice ID, please refer to:
+/** @URL: https://docs.aws.amazon.com/polly/latest/dg/API_Voice.html */
+$voiceId = 'Jacek';
 
 $amazonPollyConfig = [
 	'version' => 'latest',
 	'region' => 'eu-west-1', // Change this to your respective AWS region
 	'credentials' => [ // Change these to your respective AWS credentials
-		'key' => 'XXXXXXXXXXXXXXXXXXXX',
-		'secret' => 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
+        'key' => 'XXXXXXXXXXXXXXXXXXXX',
+        'secret' => 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
 	]
 ];
 
@@ -42,19 +108,28 @@ try {
 
 $downloadedSounds = [];
 $list = [];
-foreach ($soundList as $text) {
-	// get speech
-	$response = $client->synthesizeSpeech($text);
+$i = 0;
+$c = count($soundList);
+foreach ($soundList as $label => $text) {
+	$response = $client->synthesizeSpeech([
+		'OutputFormat' => 'mp3', // REQUIRED
+		'Text'         => $text, // REQUIRED
+		'TextType'     => 'text',
+		'VoiceId'      => $voiceId, // REQUIRED
+	]);
+
 	$sanitized = str_replace(' ', '_', transliterator_transliterate('Any-Latin; Latin-ASCII; Lower()', $text));
 
 	$fileName = "{$language}_{$sanitized}.mp3";
-	$fileLabel = $language . ' ' . $text;
+	$fileLabel = $language . ' ' . $label;
 
 	file_put_contents("Sounds/{$fileName}", $response['AudioStream']);
 
-	$list[] = str_pad("{name = '{$fileLabel}',", 30) . " path = SoundPath .. '{$fileName}'}";
+	$list[] = str_pad("{name = '{$fileLabel}',", 50) . " path = SoundPath .. '{$fileName}'}";
 
 	sleep(1);
+	$i++;
+	echo "Processing sound {$i}/{$c}\n";
 }
 
 

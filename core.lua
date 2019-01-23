@@ -1,13 +1,18 @@
 -- soundlist --
--- Niebieski, Czerwony, Zielony, Zolty, Stack
--- Wypad, Czaszka, Cyc, Pomaranczowy, Purpurowy
--- Bialy, Moon, Przerwij, Wypierdalaj, Lewo
--- Prawo, Srodek, Pierwszy, Drugi, Trzeci
--- Czwarty, Piaty, Szosty, Uciekaj, ZabierzBossa
--- TwojaKolej, Stoj, Odpalki, Ring, Addy
--- RuszSie, Boss, LewyBok, PrawyBok, LewyTyl
--- PrawyTyl, PrawyPrzod, LewyPrzod, ZabierzAdda, Przod
--- Tyl, Bloodlust, Heroizm, Aura, Banka
+-- Niebieski, Czerwony, Zielony, Żółty, Stak
+-- Wypad, Czaszka, Cyc, Pomarańczowy, Purpurowy
+-- Biały, Moon, Przerwij, Wypierdalaj, Lewo
+-- Prawo, Środek, Pierwszy, Drugi, Trzeci
+-- Czwarty, Piąty, Szósty, Uciekaj, Zabierz Bosa
+-- Twoja Kolej, Stój, Odpałki, Ady, Rusz Się
+-- Bos, Lewy Bok, Prawy Bok, Lewy Tył, Prawy Tył
+-- Prawy Przód, Lewy Przód, Zabierz Ada, Przód, Tył
+-- Bladlast, Heroizm, Aura, Bańka, Zmień Cel
+-- Odwróć się, Bij Bosa, Idź do Bosa, Unikaj, Uwaga
+-- Uwaga Żaby, Laser, Do Bariery, Nie sołkuj, Nie można cię leczyć
+-- Spałnujesz Plamy, Zabij Totem, Ukryj się, Wejdź do robota, Podnieś orba
+-- Podnieś kulkę, Frontal, Bezpieczny, Usuń staki, Do ognia
+-- Do beczki, Unikaj strzał
 -- soundlistend --
 local LSM = LibStub("LibSharedMedia-3.0");
 
@@ -15,51 +20,73 @@ local SoundPath = "Interface\\Addons\\TDSounds_PL\\Sounds\\";
 
 local sounds = {
 -- start --
-	[1]   = {name = "PL Niebieski",        path = SoundPath .. "Niebieski.mp3"},
-	[2]   = {name = "PL Czerwony",         path = SoundPath .. "Czerwony.mp3"},
-	[3]   = {name = "PL Zielony",          path = SoundPath .. "Zielony.mp3"},
-	[4]   = {name = "PL Zolty",            path = SoundPath .. "Zolty.mp3"},
-	[5]   = {name = "PL Stack",            path = SoundPath .. "Stack.mp3"},
-	[6]   = {name = "PL Wypad",            path = SoundPath .. "Wypad.mp3"},
-	[7]   = {name = "PL Czaszka",          path = SoundPath .. "Czaszka.mp3"},
-	[8]   = {name = "PL Cyc",              path = SoundPath .. "Cyc.mp3"},
-	[9]   = {name = "PL Pomaranczowy",     path = SoundPath .. "Pomaranczowy.mp3"},
-	[10]  = {name = "PL Purpurowy",        path = SoundPath .. "Purpurowy.mp3"},
-	[11]  = {name = "PL Bialy",            path = SoundPath .. "Bialy.mp3"},
-	[12]  = {name = "PL Moon",             path = SoundPath .. "Moon.mp3"},
-	[13]  = {name = "PL Przerwij",         path = SoundPath .. "Przerwij.mp3"},
-	[14]  = {name = "PL Wypierdalaj",      path = SoundPath .. "Wypierdalaj.mp3"},
-	[15]  = {name = "PL Lewo",             path = SoundPath .. "Lewo.mp3"},
-	[16]  = {name = "PL Prawo",            path = SoundPath .. "Prawo.mp3"},
-	[17]  = {name = "PL Srodek",           path = SoundPath .. "Srodek.mp3"},
-	[18]  = {name = "PL Pierwszy",         path = SoundPath .. "Pierwszy.mp3"},
-	[19]  = {name = "PL Drugi",            path = SoundPath .. "Drugi.mp3"},
-	[20]  = {name = "PL Trzeci",           path = SoundPath .. "Trzeci.mp3"},
-	[21]  = {name = "PL Czwarty",          path = SoundPath .. "Czwarty.mp3"},
-	[22]  = {name = "PL Piaty",            path = SoundPath .. "Piaty.mp3"},
-	[23]  = {name = "PL Szosty",           path = SoundPath .. "Szosty.mp3"},
-	[24]  = {name = "PL Uciekaj",          path = SoundPath .. "Uciekaj.mp3"},
-	[25]  = {name = "PL ZabierzBossa",     path = SoundPath .. "ZabierzBossa.mp3"},
-	[26]  = {name = "PL TwojaKolej",       path = SoundPath .. "TwojaKolej.mp3"},
-	[27]  = {name = "PL Stoj",             path = SoundPath .. "Stoj.mp3"},
-	[28]  = {name = "PL Odpalki",          path = SoundPath .. "Odpalki.mp3"},
-	[29]  = {name = "PL Ring",             path = SoundPath .. "Ring.mp3"},
-	[30]  = {name = "PL Addy",             path = SoundPath .. "Addy.mp3"},
-	[31]  = {name = "PL RuszSie",          path = SoundPath .. "RuszSie.mp3"},
-	[32]  = {name = "PL Boss",             path = SoundPath .. "Boss.mp3"},
-	[33]  = {name = "PL LewyBok",          path = SoundPath .. "LewyBok.mp3"},
-	[34]  = {name = "PL PrawyBok",         path = SoundPath .. "PrawyBok.mp3"},
-	[35]  = {name = "PL LewyTyl",          path = SoundPath .. "LewyTyl.mp3"},
-	[36]  = {name = "PL PrawyTyl",         path = SoundPath .. "PrawyTyl.mp3"},
-	[37]  = {name = "PL PrawyPrzod",       path = SoundPath .. "PrawyPrzod.mp3"},
-	[38]  = {name = "PL LewyPrzod",        path = SoundPath .. "LewyPrzod.mp3"},
-	[39]  = {name = "PL ZabierzAdda",      path = SoundPath .. "ZabierzAdda.mp3"},
-	[40]  = {name = "PL Przod",            path = SoundPath .. "Przod.mp3"},
-	[41]  = {name = "PL Tyl",              path = SoundPath .. "Tyl.mp3"},
-	[42]  = {name = "PL Bloodlust",        path = SoundPath .. "Bloodlust.mp3"},
-	[43]  = {name = "PL Heroizm",          path = SoundPath .. "Heroizm.mp3"},
-	[44]  = {name = "PL Aura",             path = SoundPath .. "Aura.mp3"},
-	[45]  = {name = "PL Banka",            path = SoundPath .. "Banka.mp3"}
+{name = 'PL Niebieski',                            path = SoundPath .. 'PL_niebieski.mp3'},
+{name = 'PL Czerwony',                             path = SoundPath .. 'PL_czerwony.mp3'},
+{name = 'PL Zielony',                              path = SoundPath .. 'PL_zielony.mp3'},
+{name = 'PL Żółty',                             path = SoundPath .. 'PL_zolty.mp3'},
+{name = 'PL Stack',                                path = SoundPath .. 'PL_stak.mp3'},
+{name = 'PL Wypad',                                path = SoundPath .. 'PL_wypad.mp3'},
+{name = 'PL Czaszka',                              path = SoundPath .. 'PL_czaszka.mp3'},
+{name = 'PL Cyc',                                  path = SoundPath .. 'PL_cyc.mp3'},
+{name = 'PL Pomarańczowy',                        path = SoundPath .. 'PL_pomaranczowy.mp3'},
+{name = 'PL Purpurowy',                            path = SoundPath .. 'PL_purpurowy.mp3'},
+{name = 'PL Biały',                               path = SoundPath .. 'PL_bialy.mp3'},
+{name = 'PL Moon',                                 path = SoundPath .. 'PL_moon.mp3'},
+{name = 'PL Przerwij',                             path = SoundPath .. 'PL_przerwij.mp3'},
+{name = 'PL Wypierdalaj',                          path = SoundPath .. 'PL_wypierdalaj.mp3'},
+{name = 'PL Lewo',                                 path = SoundPath .. 'PL_lewo.mp3'},
+{name = 'PL Prawo',                                path = SoundPath .. 'PL_prawo.mp3'},
+{name = 'PL Środek',                              path = SoundPath .. 'PL_srodek.mp3'},
+{name = 'PL Pierwszy',                             path = SoundPath .. 'PL_pierwszy.mp3'},
+{name = 'PL Drugi',                                path = SoundPath .. 'PL_drugi.mp3'},
+{name = 'PL Trzeci',                               path = SoundPath .. 'PL_trzeci.mp3'},
+{name = 'PL Czwarty',                              path = SoundPath .. 'PL_czwarty.mp3'},
+{name = 'PL Piąty',                               path = SoundPath .. 'PL_piaty.mp3'},
+{name = 'PL Szósty',                              path = SoundPath .. 'PL_szosty.mp3'},
+{name = 'PL Uciekaj',                              path = SoundPath .. 'PL_uciekaj.mp3'},
+{name = 'PL Zabierz Bossa',                        path = SoundPath .. 'PL_zabierz_bosa.mp3'},
+{name = 'PL Twoja Kolej',                          path = SoundPath .. 'PL_twoja_kolej.mp3'},
+{name = 'PL Stój',                                path = SoundPath .. 'PL_stoj.mp3'},
+{name = 'PL Odpałki',                             path = SoundPath .. 'PL_odpalki.mp3'},
+{name = 'PL Addy',                                 path = SoundPath .. 'PL_ady.mp3'},
+{name = 'PL Rusz Się',                            path = SoundPath .. 'PL_rusz_sie.mp3'},
+{name = 'PL Boss',                                 path = SoundPath .. 'PL_bos.mp3'},
+{name = 'PL Lewy Bok',                             path = SoundPath .. 'PL_lewy_bok.mp3'},
+{name = 'PL Prawy Bok',                            path = SoundPath .. 'PL_prawy_bok.mp3'},
+{name = 'PL Lewy Tył',                            path = SoundPath .. 'PL_lewy_tyl.mp3'},
+{name = 'PL Prawy Tył',                           path = SoundPath .. 'PL_prawy_tyl.mp3'},
+{name = 'PL Prawy Przód',                         path = SoundPath .. 'PL_prawy_przod.mp3'},
+{name = 'PL Lewy Przód',                          path = SoundPath .. 'PL_lewy_przod.mp3'},
+{name = 'PL Zabierz Adda',                         path = SoundPath .. 'PL_zabierz_ada.mp3'},
+{name = 'PL Przód',                               path = SoundPath .. 'PL_przod.mp3'},
+{name = 'PL Tył',                                 path = SoundPath .. 'PL_tyl.mp3'},
+{name = 'PL Blodlust',                             path = SoundPath .. 'PL_bladlast.mp3'},
+{name = 'PL Heroizm',                              path = SoundPath .. 'PL_heroizm.mp3'},
+{name = 'PL Aura',                                 path = SoundPath .. 'PL_aura.mp3'},
+{name = 'PL Bańka',                               path = SoundPath .. 'PL_banka.mp3'},
+{name = 'PL Zmień Cel',                           path = SoundPath .. 'PL_zmien_cel.mp3'},
+{name = 'PL Odwróć się',                        path = SoundPath .. 'PL_odwroc_sie.mp3'},
+{name = 'PL Bij Bossa',                            path = SoundPath .. 'PL_bij_bosa.mp3'},
+{name = 'PL Idź do Bossa',                        path = SoundPath .. 'PL_idz_do_bosa.mp3'},
+{name = 'PL Unikaj',                               path = SoundPath .. 'PL_unikaj.mp3'},
+{name = 'PL Uwaga',                                path = SoundPath .. 'PL_uwaga.mp3'},
+{name = 'PL Uwaga Żaby',                          path = SoundPath .. 'PL_uwaga_zaby.mp3'},
+{name = 'PL Laser',                                path = SoundPath .. 'PL_laser.mp3'},
+{name = 'PL Do Bariery',                           path = SoundPath .. 'PL_do_bariery.mp3'},
+{name = 'PL Nie soakuj',                           path = SoundPath .. 'PL_nie_solkuj.mp3'},
+{name = 'PL Nie można cię leczyć',              path = SoundPath .. 'PL_nie_mozna_cie_leczyc.mp3'},
+{name = 'PL Spawnujesz Plamy',                     path = SoundPath .. 'PL_spalnujesz_plamy.mp3'},
+{name = 'PL Zabij Totem',                          path = SoundPath .. 'PL_zabij_totem.mp3'},
+{name = 'PL Ukryj się',                           path = SoundPath .. 'PL_ukryj_sie.mp3'},
+{name = 'PL Wejdź do robota',                     path = SoundPath .. 'PL_wejdz_do_robota.mp3'},
+{name = 'PL Podnieś orba',                        path = SoundPath .. 'PL_podnies_orba.mp3'},
+{name = 'PL Podnieś kulkę',                      path = SoundPath .. 'PL_podnies_kulke.mp3'},
+{name = 'PL Frontal',                              path = SoundPath .. 'PL_frontal.mp3'},
+{name = 'PL Bezpieczny',                           path = SoundPath .. 'PL_bezpieczny.mp3'},
+{name = 'PL Usuń stacki',                         path = SoundPath .. 'PL_usun_staki.mp3'},
+{name = 'PL Do ognia',                             path = SoundPath .. 'PL_do_ognia.mp3'},
+{name = 'PL Do beczki',                            path = SoundPath .. 'PL_do_beczki.mp3'},
+{name = 'PL Unikaj strzał',                       path = SoundPath .. 'PL_unikaj_strzal.mp3'}
 -- end --
 }
 
