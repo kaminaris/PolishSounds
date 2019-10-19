@@ -1,5 +1,5 @@
-## Interface: 80100
-## Version: 8.1.2
+## Interface: 80205
+## Version: 8.2.5
 ## Title: PolishSounds
 ## Author: Kaminaris @ Burning Legion EU
 ## Notes: Dzwieki do addonow typu Weak Auras 2/Dbm/BigWigs
@@ -8,7 +8,7 @@
 ## X-Curse-Project-ID: 93704
 
 Libs\LibStub\LibStub.lua
-Libs\LibSharedMedia-3.0\CallBackHandler-1.0\CallBackHandler-1.0.lua
-Libs\LibSharedMedia-3.0\lib.xml
+Libs\CallBackHandler-1.0\CallBackHandler-1.0.lua
+Libs\LibSharedMedia-3.0\LibSharedMedia-3.0.lua
 
 core.lua

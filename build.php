@@ -67,6 +67,7 @@ $soundList = [
     'Podnieś orba'         => 'Podnieś orba',
     'Podnieś kulkę'        => 'Podnieś kulkę',
     'Frontal'              => 'Frontal',
+    'Promień'              => 'Promień',
     'Bezpieczny'           => 'Bezpieczny',
     'Usuń stacki'          => 'Usuń staki',
     'Do ognia'             => 'Do ognia',
@@ -79,21 +80,13 @@ $language = 'PL'; //2 char code
 // Amazon voice ID, please refer to:
 /** @URL: https://docs.aws.amazon.com/polly/latest/dg/API_Voice.html */
 $voiceId = 'Jacek';
+$dbGain = 9;
 
-$amazonPollyConfig = [
-	'version' => 'latest',
-	'region' => 'eu-west-1', // Change this to your respective AWS region
-	'credentials' => [ // Change these to your respective AWS credentials
-        'key' => 'XXXXXXXXXXXXXXXXXXXX',
-        'secret' => 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
-	]
-];
-
+$amazonPollyConfig = json_decode(file_get_contents('config.json'), true);
 
 /*******************************************************************
  * Don't touch this
  *******************************************************************/
-
 require(__DIR__.'/vendor/autoload.php');
 
 use Aws\Polly\PollyClient;
@@ -110,20 +103,23 @@ $downloadedSounds = [];
 $list = [];
 $i = 0;
 $c = count($soundList);
+
 foreach ($soundList as $label => $text) {
-	$response = $client->synthesizeSpeech([
-		'OutputFormat' => 'mp3', // REQUIRED
-		'Text'         => $text, // REQUIRED
-		'TextType'     => 'text',
-		'VoiceId'      => $voiceId, // REQUIRED
-	]);
-
 	$sanitized = str_replace(' ', '_', transliterator_transliterate('Any-Latin; Latin-ASCII; Lower()', $text));
-
 	$fileName = "{$language}_{$sanitized}.mp3";
 	$fileLabel = $language . ' ' . $label;
 
-	file_put_contents("Sounds/{$fileName}", $response['AudioStream']);
+	if (!file_exists("Sounds/{$fileName}")) {
+		$response = $client->synthesizeSpeech([
+			'OutputFormat' => 'mp3', // REQUIRED
+			'Text'         => $text, // REQUIRED
+			'TextType'     => 'text',
+			'VoiceId'      => $voiceId, // REQUIRED
+		]);
+
+		file_put_contents("Sounds/{$fileName}", $response['AudioStream']);
+		passthru("mp3gain\\mp3gain.exe -g {$dbGain} Sounds\\{$fileName}");
+	}
 
 	$list[] = str_pad("{name = '{$fileLabel}',", 50) . " path = SoundPath .. '{$fileName}'}";
 
@@ -141,8 +137,12 @@ foreach ($chunked as $sound) {
 
 /**
  * Generating file
+ * @param $content
+ * @param $start
+ * @param $stop
+ * @param $replace
+ * @return string|string[]|null
  */
-
 function replaceBetween($content, $start, $stop, $replace) {
 	$pattern = '/' . ($start) . '(.*)' . ($stop) .'/s';
 	return preg_replace($pattern, $start . "\n" . $replace . "\n" . $stop, $content);

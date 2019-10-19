@@ -1,5 +1,7 @@
 {
     "require": {
-        "aws/aws-sdk-php": "^3.61"
+        "aws/aws-sdk-php": "^3.61",
+        "ext-json": "*",
+        "ext-intl": "*"
     }
 }

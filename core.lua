@@ -14,9 +14,10 @@
 -- Podnieś kulkę, Frontal, Bezpieczny, Usuń staki, Do ognia
 -- Do beczki, Unikaj strzał
 -- soundlistend --
-local LSM = LibStub("LibSharedMedia-3.0");
+local addonName, PolishSounds = ...
+local LSM = LibStub('LibSharedMedia-3.0');
 
-local SoundPath = "Interface\\Addons\\PolishSounds\\Sounds\\";
+local SoundPath = 'Interface\\Addons\\PolishSounds\\Sounds\\';
 
 local sounds = {
 -- start --
@@ -90,6 +91,6 @@ local sounds = {
 -- end --
 }
 
-for key, value in pairs(sounds) do
-	LSM:Register("sound", value.name, value.path)
+for _, value in pairs(sounds) do
+	local r = LSM:Register('sound', value.name, value.path)
 end
