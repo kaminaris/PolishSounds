@@ -73,6 +73,18 @@ $soundList = [
     'Do ognia'             => 'Do ognia',
     'Do beczki'            => 'Do beczki',
     'Unikaj strzał'        => 'Unikaj strzał',
+	// azshara
+	'Zaraz dispele'        => 'Zaraz dispele',
+	'Stań na gwiazdce'     => 'Stań na gwiazdce',
+	'Stań na czaszce'      => 'Stań na czaszce',
+	'Stań na niebieskim'   => 'Stań na niebieskim',
+	'Stań na pomarańczowym'=> 'Stań na pomarańczowym',
+	'Soakuj na zielonym'   => 'Sołkuj na zielonym',
+	'Soakuj na fioletowym' => 'Sołkuj na fioletowym',
+	'Soakuj na czerwonym'  => 'Sołkuj na czerwonym',
+	'Biegaj wokół gwiazdki'=> 'Biegaj wokół gwiazdki',
+	'Biegaj gdzieś wpizdu' => 'Biegaj gdzieś wpizdu',
+	'Solo biegaj'          => 'Solo biegaj',
 ];
 
 $language = 'PL'; //2 char code
@@ -81,6 +93,7 @@ $language = 'PL'; //2 char code
 /** @URL: https://docs.aws.amazon.com/polly/latest/dg/API_Voice.html */
 $voiceId = 'Jacek';
 $dbGain = 9;
+$forceRecreate = false;
 
 $amazonPollyConfig = json_decode(file_get_contents('config.json'), true);
 
@@ -109,7 +122,7 @@ foreach ($soundList as $label => $text) {
 	$fileName = "{$language}_{$sanitized}.mp3";
 	$fileLabel = $language . ' ' . $label;
 
-	if (!file_exists("Sounds/{$fileName}")) {
+	if (!file_exists("Sounds/{$fileName}") || $forceRecreate) {
 		$response = $client->synthesizeSpeech([
 			'OutputFormat' => 'mp3', // REQUIRED
 			'Text'         => $text, // REQUIRED
@@ -119,11 +132,12 @@ foreach ($soundList as $label => $text) {
 
 		file_put_contents("Sounds/{$fileName}", $response['AudioStream']);
 		passthru("mp3gain\\mp3gain.exe -g {$dbGain} Sounds\\{$fileName}");
+
+		sleep(1);
 	}
 
 	$list[] = str_pad("{name = '{$fileLabel}',", 50) . " path = SoundPath .. '{$fileName}'}";
 
-	sleep(1);
 	$i++;
 	echo "Processing sound {$i}/{$c}\n";
 }

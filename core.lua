@@ -11,8 +11,10 @@
 -- Odwróć się, Bij Bosa, Idź do Bosa, Unikaj, Uwaga
 -- Uwaga Żaby, Laser, Do Bariery, Nie sołkuj, Nie można cię leczyć
 -- Spałnujesz Plamy, Zabij Totem, Ukryj się, Wejdź do robota, Podnieś orba
--- Podnieś kulkę, Frontal, Bezpieczny, Usuń staki, Do ognia
--- Do beczki, Unikaj strzał
+-- Podnieś kulkę, Frontal, Promień, Bezpieczny, Usuń staki
+-- Do ognia, Do beczki, Unikaj strzał, Zaraz dispele, Stań na gwiazdce
+-- Stań na czaszce, Stań na niebieskim, Stań na pomarańczowym, Sołkuj na zielonym, Sołkuj na fioletowym
+-- Sołkuj na czerwonym, Biegaj wokół gwiazdki, Biegaj gdzieś wpizdu, Solo biegaj
 -- soundlistend --
 local addonName, PolishSounds = ...
 local LSM = LibStub('LibSharedMedia-3.0');
@@ -83,11 +85,23 @@ local sounds = {
 {name = 'PL Podnieś orba',                        path = SoundPath .. 'PL_podnies_orba.mp3'},
 {name = 'PL Podnieś kulkę',                      path = SoundPath .. 'PL_podnies_kulke.mp3'},
 {name = 'PL Frontal',                              path = SoundPath .. 'PL_frontal.mp3'},
+{name = 'PL Promień',                             path = SoundPath .. 'PL_promien.mp3'},
 {name = 'PL Bezpieczny',                           path = SoundPath .. 'PL_bezpieczny.mp3'},
 {name = 'PL Usuń stacki',                         path = SoundPath .. 'PL_usun_staki.mp3'},
 {name = 'PL Do ognia',                             path = SoundPath .. 'PL_do_ognia.mp3'},
 {name = 'PL Do beczki',                            path = SoundPath .. 'PL_do_beczki.mp3'},
-{name = 'PL Unikaj strzał',                       path = SoundPath .. 'PL_unikaj_strzal.mp3'}
+{name = 'PL Unikaj strzał',                       path = SoundPath .. 'PL_unikaj_strzal.mp3'},
+{name = 'PL Zaraz dispele',                        path = SoundPath .. 'PL_zaraz_dispele.mp3'},
+{name = 'PL Stań na gwiazdce',                    path = SoundPath .. 'PL_stan_na_gwiazdce.mp3'},
+{name = 'PL Stań na czaszce',                     path = SoundPath .. 'PL_stan_na_czaszce.mp3'},
+{name = 'PL Stań na niebieskim',                  path = SoundPath .. 'PL_stan_na_niebieskim.mp3'},
+{name = 'PL Stań na pomarańczowym',              path = SoundPath .. 'PL_stan_na_pomaranczowym.mp3'},
+{name = 'PL Soakuj na zielonym',                   path = SoundPath .. 'PL_solkuj_na_zielonym.mp3'},
+{name = 'PL Soakuj na fioletowym',                 path = SoundPath .. 'PL_solkuj_na_fioletowym.mp3'},
+{name = 'PL Soakuj na czerwonym',                  path = SoundPath .. 'PL_solkuj_na_czerwonym.mp3'},
+{name = 'PL Biegaj wokół gwiazdki',              path = SoundPath .. 'PL_biegaj_wokol_gwiazdki.mp3'},
+{name = 'PL Biegaj gdzieś wpizdu',                path = SoundPath .. 'PL_biegaj_gdzies_wpizdu.mp3'},
+{name = 'PL Solo biegaj',                          path = SoundPath .. 'PL_solo_biegaj.mp3'}
 -- end --
 }
 
